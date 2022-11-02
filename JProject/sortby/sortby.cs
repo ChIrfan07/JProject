@@ -15,13 +15,18 @@ namespace ProjectJdot
         By sortt = By.XPath("//div[contains(@class,'toolbar-sorter sorter')]");
         By sorttt = By.XPath("//option[contains(text(),'Newest Arrivals')]");
 
-       
+        By scrolll = By.Id("option-label-size-963-item-4946");
 
 
         public void sort()
         {
+
+           
+
             hover(men);
+
             Click(kameez);
+
             SwitchFrame();
             SwitchFramedefault();
          
@@ -30,10 +35,14 @@ namespace ProjectJdot
             //ele.Click();
             //ele.SendKeys(Keys.ArrowDown + Keys.ArrowDown);
             ImplicitWait(40);
-             Click(sorttt);
-            scrollwindow();
-            SwitchFrame();
-            SwitchFramedefault();
+          //  drop(sortt, "Newest Arrivals");
+            Click(sorttt);
+
+            scroll(scrolll);
+
+         //   scrollwindow();
+            //SwitchFrame();
+            //SwitchFramedefault();
         }
 
     }

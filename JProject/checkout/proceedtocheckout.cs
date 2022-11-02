@@ -41,7 +41,7 @@ namespace ProjectJdot
             SwitchFrame();
             SwitchFramedefault();
 
-            ImplicitWait(10);
+       
 
             Write(eemail, email);
 

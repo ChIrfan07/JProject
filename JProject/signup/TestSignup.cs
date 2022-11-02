@@ -1,14 +1,40 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace ProjectJdot
 {
    
     [TestClass]
-    public class TestSignup : browser
+    public class TestSignup : ExtentReport
     {
+
+        [TestInitialize]
+
+        public void TestInit()
+
+        {
+
+            browser.SeleniumInit("Chrome");
+
+        }
+
+
+        [TestCleanup]
+
+        public void TestCleanUp()
+
+        {
+
+            browser.Closedriver();
+
+        }
+
+
 
 
 
@@ -34,37 +60,18 @@ namespace ProjectJdot
         }
 
 
-        [TestInitialize]
-
-        public void TestInit()
-
-        {
-
-            browser.SeleniumInit("Chrome");
-
-        }
 
 
-        [TestCleanup]
-
-        public void TestCleanUp()
-
-        {
-
-            browser.Closedriver();
-
-        }
-
-
-
-       
+     
 
 
         [TestMethod]
 
         public void invalidsignup()
         {
-            ExtentReport.extentReports.CreateTest("InvalidSignup");
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("InvalidSignup");
+         
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();
@@ -81,7 +88,9 @@ namespace ProjectJdot
 
         public void validsignup()
         {
-            ExtentReport.extentReports.CreateTest("Signup");
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("Signup");
+
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();

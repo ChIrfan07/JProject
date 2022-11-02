@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -32,7 +33,7 @@ namespace ProjectJdot
                 options.AddArguments("start-maximized");
 
 
-                // options.AddArguments("headless");
+             //   options.AddArguments("headless");
 
 
                 //  options.AddArguments("incognito");
@@ -69,22 +70,30 @@ namespace ProjectJdot
 
         }
 
+        public static void Quitdriver()
 
-
-
-        public void Write(By by, string value)
         {
 
-            driver.FindElement(by).SendKeys(value);
+            driver.Quit();
 
         }
 
-        public void Click(By by)
-        {
 
-            driver.FindElement(by).Click();
 
-        }
+
+        //public void Write(By by, string value)
+        //{
+
+        //    driver.FindElement(by).SendKeys(value);
+
+        //}
+
+        //public void Click(By by)
+        //{
+
+        //    driver.FindElement(by).Click();
+
+        //}
 
         public void Clear(By by)
         {
@@ -163,6 +172,105 @@ namespace ProjectJdot
 
             Thread.Sleep(miliSeconds);
 
+        }
+        public void Write(By by, string value)
+        {
+            try
+            {
+                driver.FindElement(by).SendKeys(value);
+                TakeScreenshot(Status.Pass, "Enter Text");
+            }
+            catch (Exception ex)
+            {
+
+                TakeScreenshot(Status.Fail, "Enter Text: " + ex.ToString());
+            }
+        }
+
+        public void Click(By by)
+        {
+            try
+            {
+                driver.FindElement(by).Click();
+                TakeScreenshot("Click Element");
+            }
+            catch (Exception ex)
+            {
+                TakeScreenshot(Status.Fail, "Click Element: " + ex.ToString());
+            }
+        }
+        public string GetElementText(By by)
+        {
+            string text;
+            try
+            {
+                text = driver.FindElement(by).Text;
+                Console.WriteLine(text);
+            }
+            catch
+            {
+                try
+                {
+                    text = driver.FindElement(by).GetAttribute("value");
+                    Console.WriteLine(text);
+
+                }
+                catch
+                {
+                    text = driver.FindElement(by).GetAttribute("innerHTML");
+                    Console.WriteLine(text);
+                }
+            }
+            return text;
+        }
+
+        public string GetElementState(By by)
+        {
+            string elementState = driver.FindElement(by).GetAttribute("Disabled");
+
+            if (elementState == null)
+            {
+                elementState = "enabled";
+            }
+            else if (elementState == "true")
+            {
+                elementState = "disabled";
+            }
+            return elementState;
+        }
+        public static void TakeScreenshot(string stepDetail)
+        {
+            string path = @"D:\JProject\JProject\" + "TestExecLog_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
+            image_username.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
+            ExtentReport.exChildTest.Log(Status.Pass, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(path + ".png").Build());
+        }
+
+        public static void TakeScreenshot(Status status, string stepDetail)
+        {
+            string path = @"D:\JProject\JProject\" + "TestExecLog_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            Screenshot image_username = ((ITakesScreenshot)driver).GetScreenshot();
+            image_username.SaveAsFile(path + ".png", ScreenshotImageFormat.Png);
+            ExtentReport.exChildTest.Log(status, stepDetail, MediaEntityBuilder
+                .CreateScreenCaptureFromPath(path + ".png").Build());
+        }
+
+        public void assertion()
+        {
+            string expectedd = "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
+
+            string actualtextt = driver.FindElement(By.XPath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")).Text;
+
+            Assert.AreEqual(expectedd, actualtextt);
+
+            Console.WriteLine("The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later." + expectedd);
+        }
+
+        public static void Assertion(string expect , By by)
+        {
+            string actualText = driver.FindElement(by).Text;
+            Assert.AreEqual(expect, actualText);
+            Console.WriteLine(expect, actualText);
         }
 
     }

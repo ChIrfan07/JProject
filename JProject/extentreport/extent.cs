@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-using AventStack.ExtentReports.Reporter.Configuration;
 
 
 namespace ProjectJdot
@@ -20,14 +21,14 @@ namespace ProjectJdot
         public static void LogReport(string testcase)
         {
             extentReports = new ExtentReports();
-            dirpath = @"D:\JProject\JProject\exxtent\irfan.html";
+            dirpath = @"D:\JProject\JProject\" + testcase;
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(dirpath);
             htmlReporter.Config.Theme = Theme.Standard;
             extentReports.AttachReporter(htmlReporter);
 
         }
 
-
+       
     }
 }
 

@@ -15,7 +15,7 @@ namespace ProjectJdot
         By Clicklist = By.Id("mode-list");
         By gridlist = By.Id("mode-grid");
 
-        By scrollimage = By.XPath("//div[@class='category-image']");
+       // By scrollimage = By.XPath("//div[@class='category-image']");
 
         //By viewas = By.ClassName("modes");
 
@@ -34,17 +34,17 @@ namespace ProjectJdot
             Click(caps);
             SwitchFrame();
             SwitchFramedefault();
-            scroll(scrollimage);
-            ImplicitWait(30);
+          //  scroll(scrollimage);
+            ImplicitWait(5);
 
             Click(Clicklist);
-            scroll(scrollimage);
+          //  scroll(scrollimage);
             SwitchFrame();
             SwitchFramedefault();
-            ImplicitWait(30);
+            ImplicitWait(5);
 
             Click(gridlist);
-            scroll(scrollimage);
+          //  scroll(scrollimage);
             SwitchFrame();
             SwitchFramedefault();
 

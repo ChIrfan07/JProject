@@ -4,12 +4,14 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using System.Windows;
 using System.Threading;
+using AventStack.ExtentReports;
 
 namespace ProjectJdot
-{ 
- [TestClass]
-public class Testlogin : browser
 {
+    [TestClass]
+public class Testlogin : ExtentReport
+    {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         [TestInitialize()]
 
@@ -28,7 +30,7 @@ public class Testlogin : browser
 
         {
 
-            browser.Closedriver();
+            browser.Quitdriver();
 
         }
 
@@ -54,21 +56,7 @@ public class Testlogin : browser
         ExtentReport.extentReports.Flush();
     }
 
-    //[TestClass]
-    //public class Testlogin : browser
-    //{
 
-
-    //    [TestInitialize()]
-
-   
-
-        //public TestContext instance;
-        //public TestContext TestContext
-        //{
-        //    set { instance = value; }
-        //    get { return instance; }
-        //}
 
         [TestMethod, TestCategory("Login")]
 
@@ -77,23 +65,27 @@ public class Testlogin : browser
 
         public void JD_TC_2()
         {
-            ExtentReport.extentReports.CreateTest("InvalidLogin");
-            OpenUrl("https://www.junaidjamshed.com");
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("InvalidLogin");
+            //ExtentReport.extentReports.CreateTest("InvalidLogin");
+            browser.OpenUrl("https://www.junaidjamshed.com");
 
             
             Country cty = new Country();
             cty.SelectCountry();
 
-            login log = new login();
+            login log1 = new login();
 
             string user = TestContext.DataRow["email"].ToString();
 
             string pass = TestContext.DataRow["password"].ToString();
 
+            
+            log1.invalidlogin(user, pass);
 
-            log.invalidlogin(user, pass);
-
-
+            log.Info("App is working");
+            
+        
 
         }
 
@@ -110,7 +102,8 @@ public class Testlogin : browser
 
         public void JD_TC_1()
         {
-            ExtentReport.extentReports.CreateTest("validLogin");
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("ValidLogin");
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();
@@ -123,6 +116,12 @@ public class Testlogin : browser
 
 
             log.validlogin(user, pass);
+
+         //   string expected = "Welcome, Muhammad Irfan!";
+
+          //  string actual = driver.FindElement(By.XPath("(//span[text()='Welcome, Muhammad Irfan!'])[1]")).Text;
+
+          //  Assert.AreEqual(expected, actual);    
 
 
 

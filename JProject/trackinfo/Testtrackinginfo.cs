@@ -44,6 +44,7 @@ namespace ProjectJdot
             get { return instance; }
 
         }
+
         [ClassInitialize]
 
         public static void ClassInitialize(TestContext testContext)
@@ -51,6 +52,7 @@ namespace ProjectJdot
             //   browser.SeleniumInit("Chrome");
             ExtentReport.LogReport("Extent Report");
         }
+
         [ClassCleanup]
         public static void ClassCleanUp()
         {

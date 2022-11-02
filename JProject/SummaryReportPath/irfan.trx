@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="9503f959-b4dd-46e5-a9e4-3851c0f6016d" name="Irfan_laptop@DESKTOP-S8RLPQP 2022-10-26 22:45:43" runUser="DESKTOP-S8RLPQP\Irfan_laptop" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2022-10-26T22:45:43.3991264+05:00" queuing="2022-10-26T22:45:43.3991264+05:00" start="2022-10-26T22:45:40.6087203+05:00" finish="2022-10-26T22:45:43.4021241+05:00" />
+  <TestSettings name="default" id="abd9fb39-697e-472d-9501-7791854db242">
+    <Deployment runDeploymentRoot="Irfan_laptop_DESKTOP-S8RLPQP_2022-10-26_22_45_43" />
+  </TestSettings>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1157989+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testaddtobag' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1207967+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testproceedtocheckout' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1207967+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testcontactus' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1207967+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.TestCountry' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1207967+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testsortby' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1217933+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testtrackinginfo' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1217933+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testlogin' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1247920+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testsearch' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1257940+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testfilter' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1287908+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.TestSignup' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.1317880+05:00">
+        <Text>[MSTest][Discovery][D:\JProject\JProject\bin\Debug\JProject.dll] MSTestAdapter failed to discover tests in class 'ProjectJdot.Testdisplaymodes' of assembly 'D:\JProject\JProject\bin\Debug\JProject.dll' because UTA013: ProjectJdot.Testcontactus: Cannot define more than one method with the AssemblyInitialize attribute inside an assembly..</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-S8RLPQP" outcome="Warning" timestamp="2022-10-26T22:45:43.3721410+05:00">
+        <Text>No test is available in D:\JProject\JProject\bin\Debug\JProject.dll. Make sure that test discoverer &amp; executors are registered and platform &amp; framework version settings are appropriate and try again.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

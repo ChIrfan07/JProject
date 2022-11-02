@@ -17,6 +17,7 @@ namespace ProjectJdot
         By country1 = By.XPath("//option[@value='PKR']");
         
         By enter = By.XPath("//button[@class='form-control jj-enter-btn']");
+
         //   By popup = By.XPath("//*[@id='allow' and @class='button']");
 
         public void SelectCountry()
@@ -24,11 +25,12 @@ namespace ProjectJdot
 
             SwitchFrame();
             SwitchFramedefault();
-            Click(country);
-            ImplicitWait(30);
+            ImplicitWait(5);
 
+            Click(country);
+            ImplicitWait(5);
             Click(country1);
-            ImplicitWait(30);
+            ImplicitWait(5);
             Click(enter);
             SwitchFrame();
             SwitchFramedefault();

@@ -2,9 +2,10 @@
 ECHO Demo Automation Executed Started.
 
 
+
 set dllpath=D:\JProject\JProject\bin\Debug\JProject.dll
 
-set SummaryReportPath=D:\JProject\JProject\TestSummary
+set SummaryReportPath=D:\JProject\JProject\SummaryReportPath
 
 
 
@@ -15,6 +16,6 @@ VSTest.Console.exe  %dllpath% /Logger:"trx;LogFileName=%SummaryReportPath%\irfan
 
 cd D:\JProject\JProject\bin\Debug
 
-TrxToHTML %SummaryReportPath%
+TrxToHTML.exe %SummaryReportPath%
 
 PAUSE

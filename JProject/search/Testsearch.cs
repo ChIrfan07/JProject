@@ -7,23 +7,57 @@ namespace ProjectJdot
 {
     
     [TestClass]
-    public class Testsearch : browser
+    public class Testsearch : ExtentReport
     {
-        [TestInitialize()]
+        
 
-        public void TestInit()
+            [TestInitialize()]
 
+            public void TestInit()
+
+            {
+
+                browser.SeleniumInit("Chrome");
+
+            }
+            [TestCleanup()]
+
+            public void TestCleanUp()
+
+            {
+
+                browser.Quitdriver();
+
+            }
+
+
+
+        public TestContext instance;
+        public TestContext TestContext
         {
+            set { instance = value; }
+            get { return instance; }
 
-            browser.SeleniumInit("Chrome");
+        }
+        [ClassInitialize]
 
+        public static void ClassInitialize(TestContext testContext)
+        {
+            //   browser.SeleniumInit("Chrome");
+            ExtentReport.LogReport("Extent Report");
+        }
+        [ClassCleanup]
+        public static void ClassCleanUp()
+        {
+            ExtentReport.extentReports.Flush();
         }
 
         [TestMethod]
 
         public void entertextSearch()
         {
-
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("entertextSearch");
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();
@@ -38,7 +72,8 @@ namespace ProjectJdot
 
         public void entervalidSearch()
         {
-
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("entervalidSearch");
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();
@@ -53,7 +88,8 @@ namespace ProjectJdot
 
         public void inentervalidSearch()
         {
-
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("inentervalidSearch");
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
             cty.SelectCountry();

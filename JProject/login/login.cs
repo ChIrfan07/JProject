@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AventStack.ExtentReports.Gherkin.Model;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace ProjectJdot
@@ -21,26 +23,29 @@ namespace ProjectJdot
 
         By submit = By.Id("send2");
 
+        By cc = By.XPath("(//span[@class='logged-in'])[1]");
+
+        By actuall = By.XPath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+
     
 
         public void invalidlogin(string email, string password)
         {
           Click(signin);
 
-            ImplicitWait(60);
+            ImplicitWait(10);
 
             SwitchFrame();
             SwitchFramedefault();
 
-            ImplicitWait(30);
+            ImplicitWait(10);
 
             Write(enterusername, email);
             Write(enterpassword, password);
-            
-          
             Click(submit);
             SwitchFrame();
             SwitchFramedefault();
+            Assertion("The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", actuall);
         }
 
         public void validlogin(string email, string password)
@@ -48,10 +53,12 @@ namespace ProjectJdot
             
             Click(signin);
 
-            ImplicitWait(60);
+            ImplicitWait(10);
 
             SwitchFrame();
             SwitchFramedefault();
+
+            ImplicitWait(10);
 
             Write(enterusername, email);
             Write(enterpassword, password);
@@ -59,6 +66,11 @@ namespace ProjectJdot
             Click(submit);
             SwitchFrame();
             SwitchFramedefault();
+
+
+          //  GetElementText(cc);
+
+
 
         }
         

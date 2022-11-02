@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ProjectJdot
 {
    
     [TestClass]
-    public class Testproceedtocheckout : browser
+    public class Testproceedtocheckout : ExtentReport
     {
         [TestInitialize()]
 
@@ -25,7 +26,21 @@ namespace ProjectJdot
         {
             set { instance = value; }
             get { return instance; }
+
         }
+        [ClassInitialize]
+
+        public static void ClassInitialize(TestContext testContext)
+        {
+            //   browser.SeleniumInit("Chrome");
+            ExtentReport.LogReport("Extent Report");
+        }
+        [ClassCleanup]
+        public static void ClassCleanUp()
+        {
+            ExtentReport.extentReports.Flush();
+        }
+
 
 
         [TestMethod]
@@ -33,6 +48,10 @@ namespace ProjectJdot
 
         public void checkout()
         {
+
+
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("Proceedtocheckout");
             browser.OpenUrl("https://www.junaidjamshed.com");
 
 
@@ -62,7 +81,7 @@ namespace ProjectJdot
 
             check.checkoutt(email, pass, first, last, address, province, postal, phone);
 
-            Thread.Sleep(10000);
+           
 
         }
 

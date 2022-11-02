@@ -4,12 +4,13 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using System.Windows;
 using System.Threading;
+using AventStack.ExtentReports;
 
 namespace ProjectJdot
 {
   
     [TestClass]
-    public class TestCountry:browser
+    public class TestCountry : ExtentReport
     {
         [TestInitialize()]
 
@@ -20,7 +21,6 @@ namespace ProjectJdot
             browser.SeleniumInit("Chrome");
 
         }
-
 
         [TestCleanup()]
 
@@ -41,6 +41,26 @@ namespace ProjectJdot
             get { return instance; }
 
         }
+
+        [AssemblyInitialize()]
+        public static void AssemblyInit(TestContext context)
+        {
+
+        }
+
+        [AssemblyCleanup()]
+        public static void AssemblyCleanup()
+        {
+
+        }
+
+
+
+
+
+
+
+
         [ClassInitialize]
 
         public static void ClassInitialize(TestContext testContext)
@@ -55,13 +75,16 @@ namespace ProjectJdot
         }
 
 
+
+
         [TestMethod]
             public void country()
             {
-            ExtentReport.extentReports.CreateTest("Country");
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("Country");
             browser.OpenUrl("https://www.junaidjamshed.com");
-                Country cty = new Country();
-                cty.SelectCountry();
+             Country cty = new Country();
+             cty.SelectCountry();
 
             }
         }

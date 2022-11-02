@@ -8,9 +8,9 @@ using System.Text;
 {
    
     [TestClass]
-    public class Testdisplaymodes : browser
+    public class Testdisplaymodes : ExtentReport
     {
-        [TestInitialize()]
+        [TestInitialize]
 
         public void TestInit()
 
@@ -20,10 +20,49 @@ using System.Text;
 
         }
 
+
+        [TestCleanup]
+
+        public void TestCleanUp()
+
+        {
+
+            browser.Closedriver();
+
+        }
+
+
+
+
+
+        public TestContext instance;
+        public TestContext TestContext
+        {
+            set { instance = value; }
+            get { return instance; }
+
+        }
+
+        [ClassInitialize]
+
+        public static void ClassInitialize(TestContext testContext)
+        {
+            //   browser.SeleniumInit("Chrome");
+            ExtentReport.LogReport("Extent_Report");
+        }
+        [ClassCleanup]
+        public static void ClassCleanUp()
+        {
+            ExtentReport.extentReports.Flush();
+        }
+
+
         [TestMethod]
 
         public void viewas()
         {
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("viewas");
 
             browser.OpenUrl("https://www.junaidjamshed.com");
             Country cty = new Country();
